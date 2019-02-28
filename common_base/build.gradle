@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
+        //SVG支持
+        vectorDrawables.useSupportLibrary = true
+        //ARouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //防止编译的时候oom、GC
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.supportLib
+    api rootProject.ext.okhttpLib
+    api rootProject.ext.retrofitLib
+    api rootProject.ext.rxJavaLib
+    api rootProject.ext.lombokLib
+    api rootProject.ext.necessaryLib
+
+    annotationProcessor rootProject.ext.butterknifeLibs.butterknife_compiler
+    api rootProject.ext.butterknifeLibs.butterknife
+
+    annotationProcessor rootProject.ext.aruterLibs.arouter_compiler
+    api rootProject.ext.aruterLibs.arouter_api
+    api rootProject.ext.aruterLibs.arouter_annotation
+
+    testImplementation rootProject.ext.supportTestLibs.junit
+    androidTestImplementation rootProject.ext.supportTestLibs.runner
+    androidTestImplementation rootProject.ext.supportTestLibs.espresso_core
+}
