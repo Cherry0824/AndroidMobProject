@@ -27,7 +27,7 @@ public class MobLoginActivity extends BaseActivity {
     @Override
     public void initViews(Bundle savedInstanceState) {
 
-
+        showEmptyView();
     }
 
 }

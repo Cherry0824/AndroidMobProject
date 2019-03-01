@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.2" />
+            android:value="ratio_float" />
     </application>
 
 </manifest>
