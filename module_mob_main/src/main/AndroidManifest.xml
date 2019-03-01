@@ -3,6 +3,9 @@
     package="com.mob.main">
 
     <application>
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
         <activity
             android:name=".ui.WelcomeActivity"
             android:theme="@style/AppTheme">
@@ -12,6 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

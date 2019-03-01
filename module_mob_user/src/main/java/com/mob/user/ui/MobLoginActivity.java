@@ -17,9 +17,7 @@ import butterknife.OnClick;
 @Route(path = ARouterConfig.USER_LOGIN)
 public class MobLoginActivity extends BaseActivity {
 
-    UserInfo userInfo;
-    @BindView(R2.id.test)
-    TextView test;
+
 
     @Override
     public int getLayoutRes() {
@@ -28,15 +26,8 @@ public class MobLoginActivity extends BaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        userInfo = new UserInfo();
+
 
     }
 
-    public void test() {
-
-    }
-
-    @OnClick(R2.id.test)
-    public void onClick() {
-    }
 }

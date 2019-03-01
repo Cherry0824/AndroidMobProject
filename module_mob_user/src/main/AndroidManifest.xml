@@ -3,7 +3,11 @@
     package="com.mob.user">
 
     <application>
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
         <activity android:name=".ui.MobLoginActivity"></activity>
+
     </application>
 
 </manifest>
